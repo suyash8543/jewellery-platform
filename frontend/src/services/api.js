@@ -1,5 +1,6 @@
-// Base API configuration (supports Vercel environment variable or local proxy)
-const RAW_BASE = import.meta.env.VITE_API_BASE_URL ? import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '') : '';
+// Base API configuration (supports Vercel environment variable or defaults to live Render backend)
+const DEFAULT_BACKEND = 'https://jewellery-platform-dfqb.onrender.com';
+const RAW_BASE = (import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? DEFAULT_BACKEND : '')).replace(/\/$/, '');
 const API_BASE = RAW_BASE ? `${RAW_BASE}/api` : '/api';
 
 function getAuthHeader() {
