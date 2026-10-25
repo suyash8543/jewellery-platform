@@ -43,40 +43,40 @@ export default function DiwaliOffers() {
   ];
 
   return (
-    <div className="min-h-screen bg-ivory py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <div className="min-h-screen bg-ivory py-8 sm:py-12 px-3 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
         {/* Banner */}
-        <div className="bg-gradient-to-br from-burgundy-950 via-burgundy-900 to-burgundy-950 rounded-3xl p-8 sm:p-12 text-white border-2 border-gold-400 text-center space-y-4 shadow-luxury">
-          <div className="inline-flex items-center gap-1.5 bg-gold-500/20 text-gold-300 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider border border-gold-500/30">
-            <Flame className="w-4 h-4 text-amber-400" />
+        <div className="bg-gradient-to-br from-burgundy-950 via-burgundy-900 to-burgundy-950 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 text-white border-2 border-gold-400 text-center space-y-4 shadow-luxury">
+          <div className="inline-flex items-center gap-1.5 bg-gold-500/20 text-gold-300 text-[11px] xs:text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-gold-500/30">
+            <Flame className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>Diwali & Dhanteras Utsav 2026</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-white">
+          <h1 className="font-serif text-2xl xs:text-3xl sm:text-5xl font-extrabold text-white leading-tight">
             Exclusive Festive Privileges & Schemes
           </h1>
 
-          <p className="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-stone-300 text-xs xs:text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Make this Diwali truly auspicious with transparent weight-based pricing, guaranteed BIS hallmarked purity, and unmatched seasonal savings.
           </p>
 
           <div className="pt-2">
-            <span className="text-xs text-gold-300 bg-burgundy-900 px-4 py-1.5 rounded-full border border-gold-400/30">
+            <span className="inline-block text-[11px] xs:text-xs text-gold-300 bg-burgundy-900/90 px-3.5 py-1.5 rounded-full border border-gold-400/30">
               Today's 22K Benchmark: ₹{rates.gold22kPerGram}/g | 24K: ₹{rates.gold24kPerGram}/g
             </span>
           </div>
         </div>
 
         {/* Offers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
           {offers.map((offer) => (
             <div
               key={offer.title}
-              className="bg-white rounded-2xl p-6 sm:p-8 border border-gold-200 shadow-sm hover:shadow-luxury transition-all flex flex-col justify-between space-y-4"
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-gold-200 shadow-sm hover:shadow-luxury transition-all flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gold-600">
+                <div className="flex flex-wrap gap-2 justify-between items-start">
+                  <span className="text-[11px] xs:text-xs font-bold uppercase tracking-wider text-gold-600">
                     {offer.category}
                   </span>
                   <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">
@@ -84,7 +84,7 @@ export default function DiwaliOffers() {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl font-bold text-burgundy-950">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-burgundy-950">
                   {offer.title}
                 </h3>
 
@@ -98,10 +98,10 @@ export default function DiwaliOffers() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-stone-100 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-3">
                 <Link
                   to="/collections"
-                  className="text-xs font-bold text-burgundy-950 hover:text-gold-600 flex items-center gap-1"
+                  className="min-h-[44px] text-xs font-bold text-burgundy-950 hover:text-gold-600 flex items-center justify-center xs:justify-start gap-1"
                 >
                   <span>Explore Eligible Pieces</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -111,7 +111,7 @@ export default function DiwaliOffers() {
                   href={`https://wa.me/${whatsapp}?text=Hello%20Swarna%20Mahal%20Jewellers,%20I%20am%20inquiring%20about%20the%20offer:%20"${encodeURIComponent(offer.title)}".%20Please%20guide%20me.`}
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition"
+                  className="min-h-[44px] bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center justify-center gap-1.5 transition active:scale-95"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   <span>Enquire</span>

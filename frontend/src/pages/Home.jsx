@@ -62,38 +62,38 @@ export default function Home() {
   const whatsapp = settings?.whatsappNumber || '919876543210';
 
   return (
-    <div className="space-y-16 pb-16">
+    <div className="space-y-12 sm:space-y-16 pb-12 sm:pb-16">
       {/* 1. Festive Hero Banner */}
       <FestiveDiwaliBanner />
 
       {/* 2. Curated Categories Bar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <span className="text-xs uppercase font-bold text-gold-600 tracking-widest block mb-1">
             Exclusive Showroom Collections
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-burgundy-950">
+          <h2 className="font-serif text-xl sm:text-3xl font-bold text-burgundy-950">
             Handcrafted for Life's Sacred Milestones
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6">
           {categories.map((cat) => (
             <Link
               key={cat.name}
               to={cat.link}
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-luxury transition-all duration-300 border border-ivory-border"
+              className="group relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-luxury transition-all duration-300 border border-ivory-border"
             >
               <img
                 src={cat.image}
                 alt={cat.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-burgundy-950/90 via-burgundy-950/30 to-transparent flex flex-col justify-end p-4 text-center">
-                <span className="text-[10px] text-gold-300 font-bold uppercase tracking-wider mb-0.5">
+              <div className="absolute inset-0 bg-gradient-to-t from-burgundy-950/90 via-burgundy-950/30 to-transparent flex flex-col justify-end p-2.5 sm:p-4 text-center">
+                <span className="text-[9px] sm:text-[10px] text-gold-300 font-bold uppercase tracking-wider mb-0.5">
                   {cat.tag}
                 </span>
-                <h3 className="font-serif text-sm sm:text-base font-bold text-white group-hover:text-gold-300 transition">
+                <h3 className="font-serif text-xs xs:text-sm sm:text-base font-bold text-white group-hover:text-gold-300 transition">
                   {cat.name}
                 </h3>
               </div>
@@ -104,19 +104,19 @@ export default function Home() {
 
       {/* 3. Diwali Featured & Bestseller Jewellery Showcase */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4 border-b border-ivory-border pb-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 sm:mb-8 gap-3 sm:gap-4 border-b border-ivory-border pb-4">
           <div>
-            <div className="flex items-center gap-2 text-gold-600 text-xs font-bold uppercase tracking-wider mb-1">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-gold-600 text-xs font-bold uppercase tracking-wider mb-1">
               <Sparkles className="w-4 h-4 text-gold-500 animate-spin-slow" />
               <span>Diwali Mahotsav Bestsellers</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-burgundy-950">
+            <h2 className="font-serif text-xl sm:text-3xl font-bold text-burgundy-950">
               Auspicious Festive Creations
             </h2>
           </div>
           <Link
             to="/collections"
-            className="text-xs sm:text-sm font-semibold text-burgundy-900 hover:text-gold-600 flex items-center gap-1 group"
+            className="text-xs sm:text-sm font-semibold text-burgundy-900 hover:text-gold-600 flex items-center gap-1 group py-1"
           >
             <span>View Full Catalogue</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
@@ -124,13 +124,13 @@ export default function Home() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8 animate-pulse">
             {[1, 2, 3].map((n) => (
               <div key={n} className="bg-stone-200 aspect-[4/5] rounded-2xl"></div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8">
             {products.slice(0, 6).map((product) => (
               <ProductCard key={product.id || product.slug} product={product} />
             ))}
@@ -140,28 +140,28 @@ export default function Home() {
 
       {/* 4. "Upload Your Jewellery Sample" Spotlight Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-burgundy-950 via-burgundy-900 to-burgundy-950 rounded-3xl p-8 sm:p-12 text-white border-2 border-gold-400/40 shadow-luxury relative overflow-hidden">
+        <div className="bg-gradient-to-r from-burgundy-950 via-burgundy-900 to-burgundy-950 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 text-white border-2 border-gold-400/40 shadow-luxury relative overflow-hidden">
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-1.5 bg-gold-500/20 text-gold-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-gold-500/30">
-                <UploadCloud className="w-4 h-4 text-gold-400" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-3.5 sm:space-y-4">
+              <div className="inline-flex items-center gap-1.5 bg-gold-500/20 text-gold-300 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-gold-500/30">
+                <UploadCloud className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-400" />
                 <span>Bespoke Karigari Consultation</span>
               </div>
 
-              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-white leading-tight">
+              <h2 className="font-serif text-xl xs:text-2xl sm:text-4xl font-bold text-white leading-tight">
                 Saw a Design You Love? <span className="gold-gradient-text">We'll Craft It For You</span>
               </h2>
 
-              <p className="text-stone-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+              <p className="text-stone-300 text-xs sm:text-base max-w-2xl leading-relaxed">
                 Send us a photo from Instagram, Pinterest, or a family heirloom. Our master karigars will evaluate the design, provide an exact weight estimation in 22K or 18K gold, and give you a transparent price quote.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   to="/custom-sample"
-                  className="bg-gold-500 hover:bg-gold-400 text-burgundy-950 font-bold px-6 py-3.5 rounded-full text-xs sm:text-sm flex items-center gap-2 transition shadow-gold-glow"
+                  className="min-h-[44px] bg-gold-500 hover:bg-gold-400 text-burgundy-950 font-bold px-6 py-3 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-gold-glow"
                 >
                   <UploadCloud className="w-4 h-4 text-burgundy-950" />
                   <span>Upload Your Design Sample Now</span>
@@ -170,7 +170,7 @@ export default function Home() {
                   href={`https://wa.me/${whatsapp}?text=Hello%20Swarna%20Mahal%20Jewellers,%20I%20have%20a%20jewellery%20photo%20I%20want%20to%20recreate.%20Can%20I%20share%20it%20here?`}
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-full text-xs sm:text-sm flex items-center gap-2 transition"
+                  className="min-h-[44px] bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 transition"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Send on WhatsApp</span>
@@ -179,7 +179,7 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-4 text-center lg:text-right">
-              <div className="inline-block bg-burgundy-900/90 border border-gold-400/30 rounded-2xl p-6 text-left space-y-3">
+              <div className="inline-block bg-burgundy-900/90 border border-gold-400/30 rounded-2xl p-4 sm:p-6 text-left space-y-2.5 sm:space-y-3 w-full sm:w-auto">
                 <span className="text-xs uppercase font-bold text-gold-400 block tracking-wider">
                   How It Works:
                 </span>
@@ -202,29 +202,29 @@ export default function Home() {
 
       {/* 6. Festive Jewellery Purchase Scheme ("11 + 1 Month Bonus") */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-gold-300 shadow-luxury grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-gold-300 shadow-luxury grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+          <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
             <span className="text-xs uppercase font-bold text-gold-600 tracking-widest block">
               Smart Gold Investment Scheme
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-burgundy-950">
+            <h2 className="font-serif text-xl sm:text-3xl font-bold text-burgundy-950">
               Swarna Dhanvriddhi: Pay 11 Months, Get 1 Month Free Bonus
             </h2>
-            <p className="text-stone-600 text-sm leading-relaxed">
+            <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
               Plan your family's future jewellery and wedding purchases effortlessly. Invest a fixed monthly instalment starting from ₹2,000 for 11 months. On the 12th month, Swarna Mahal contributes 100% of one instalment as a festive gift towards your jewellery redemption.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 text-xs">
-              <div className="bg-stone-50 p-3 rounded-xl border border-stone-200">
-                <span className="text-stone-500 block">Min. Commitment</span>
-                <span className="font-bold text-burgundy-950 text-sm">₹2,000 / month</span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 pt-1 sm:pt-2 text-xs">
+              <div className="bg-stone-50 p-2.5 sm:p-3 rounded-xl border border-stone-200">
+                <span className="text-stone-500 block text-[11px]">Min. Commitment</span>
+                <span className="font-bold text-burgundy-950 text-xs sm:text-sm">₹2,000 / mo</span>
               </div>
-              <div className="bg-stone-50 p-3 rounded-xl border border-stone-200">
-                <span className="text-stone-500 block">Tenure</span>
-                <span className="font-bold text-burgundy-950 text-sm">11 Months</span>
+              <div className="bg-stone-50 p-2.5 sm:p-3 rounded-xl border border-stone-200">
+                <span className="text-stone-500 block text-[11px]">Tenure</span>
+                <span className="font-bold text-burgundy-950 text-xs sm:text-sm">11 Months</span>
               </div>
-              <div className="bg-gold-50 p-3 rounded-xl border border-gold-200 col-span-2 sm:col-span-1">
-                <span className="text-gold-800 block">Store Contribution</span>
-                <span className="font-bold text-burgundy-950 text-sm">1 Month Free</span>
+              <div className="bg-gold-50 p-2.5 sm:p-3 rounded-xl border border-gold-200 col-span-2 sm:col-span-1">
+                <span className="text-gold-800 block text-[11px]">Store Bonus</span>
+                <span className="font-bold text-burgundy-950 text-xs sm:text-sm">1 Month Free</span>
               </div>
             </div>
             <div className="pt-2">
@@ -232,7 +232,7 @@ export default function Home() {
                 href={`https://wa.me/${whatsapp}?text=Hello%20Swarna%20Mahal%20Jewellers,%20I%20would%20like%20to%20know%20more%20about%20the%2011%2B1%20Jewellery%20Purchase%20Scheme.`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-6 py-3 rounded-full text-xs transition"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-6 py-3 rounded-full text-xs transition"
               >
                 <span>Enquire About Jewellery Scheme</span>
                 <ArrowRight className="w-4 h-4 text-gold-400" />
@@ -240,12 +240,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-gradient-to-br from-gold-50 to-ivory p-6 sm:p-8 rounded-2xl border border-gold-200 space-y-4 text-center">
-            <Coins className="w-12 h-12 text-gold-600 mx-auto" />
-            <h3 className="font-serif text-lg font-bold text-burgundy-950">
+          <div className="lg:col-span-5 bg-gradient-to-br from-gold-50 to-ivory p-5 sm:p-8 rounded-2xl border border-gold-200 space-y-3.5 sm:space-y-4 text-center">
+            <Coins className="w-10 h-10 sm:w-12 sm:h-12 text-gold-600 mx-auto" />
+            <h3 className="font-serif text-base sm:text-lg font-bold text-burgundy-950">
               Illustrative Scheme Example
             </h3>
-            <div className="bg-white p-4 rounded-xl border border-stone-200 text-xs space-y-2 text-left">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200 text-xs space-y-2 text-left">
               <div className="flex justify-between">
                 <span>Your Monthly Investment:</span>
                 <span className="font-bold">₹5,000</span>
@@ -260,10 +260,10 @@ export default function Home() {
               </div>
               <div className="pt-2 border-t border-stone-200 flex justify-between font-serif text-sm font-bold text-burgundy-950">
                 <span>You Redeem Jewellery Worth:</span>
-                <span className="text-base text-gold-600">₹60,000</span>
+                <span className="text-sm sm:text-base text-gold-600">₹60,000</span>
               </div>
             </div>
-            <p className="text-[11px] text-stone-500">
+            <p className="text-[10px] sm:text-[11px] text-stone-500">
               Redeemable across all 22K Hallmarked Gold, Antique, and Diamond collections.
             </p>
           </div>

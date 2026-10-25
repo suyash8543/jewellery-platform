@@ -72,16 +72,16 @@ export default function Navbar() {
 
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo & Heritage Brand */}
-          <Link to="/" className="flex flex-col group">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl sm:text-3xl font-serif font-bold tracking-wider text-burgundy-900 group-hover:text-gold-600 transition">
+          <Link to="/" className="flex flex-col group py-1">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-xl xs:text-2xl sm:text-3xl font-serif font-bold tracking-wider text-burgundy-900 group-hover:text-gold-600 transition">
                 SWARNA MAHAL
               </span>
-              <Sparkles className="w-5 h-5 text-gold-500 animate-spin-slow" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500 animate-spin-slow shrink-0" />
             </div>
-            <span className="text-[10px] tracking-[0.25em] uppercase font-sans text-stone-500 font-semibold -mt-1">
+            <span className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase font-sans text-stone-500 font-semibold -mt-0.5 sm:-mt-1">
               Jewellers • Heritage Since 1982
             </span>
           </Link>
@@ -116,7 +116,7 @@ export default function Navbar() {
             {/* Upload Sample / Bespoke Design CTA */}
             <Link
               to="/custom-sample"
-              className="bg-gold-50 hover:bg-gold-100 text-burgundy-900 border border-gold-300 font-medium px-3.5 py-2 rounded-full text-xs flex items-center gap-1.5 transition shadow-sm hover:shadow"
+              className="bg-gold-50 hover:bg-gold-100 text-burgundy-900 border border-gold-300 font-medium px-3.5 py-2 rounded-full text-xs flex items-center gap-1.5 transition shadow-sm hover:shadow min-h-[40px]"
             >
               <UploadCloud className="w-4 h-4 text-gold-600" />
               <span>Upload Your Design</span>
@@ -127,25 +127,26 @@ export default function Navbar() {
               href={`https://wa.me/${whatsapp}?text=Hello%20Swarna%20Mahal%20Jewellers,%20I%20am%20exploring%20your%20jewellery%20collection.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-4 py-2 rounded-full text-xs flex items-center gap-1.5 transition shadow-sm"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-4 py-2 rounded-full text-xs flex items-center gap-1.5 transition shadow-sm min-h-[40px]"
             >
               <MessageCircle className="w-4 h-4" />
               <span>WhatsApp Us</span>
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden gap-2">
+          {/* Mobile Menu Button & Quick Sample */}
+          <div className="flex items-center lg:hidden gap-1.5 sm:gap-2">
             <Link
               to="/custom-sample"
-              className="text-xs bg-gold-50 text-burgundy-900 border border-gold-300 px-2.5 py-1.5 rounded-full flex items-center gap-1"
+              className="text-[11px] sm:text-xs bg-gold-50 text-burgundy-900 border border-gold-300 px-2.5 py-1.5 rounded-full flex items-center gap-1 font-medium"
             >
-              <UploadCloud className="w-3.5 h-3.5 text-gold-600" />
+              <UploadCloud className="w-3.5 h-3.5 text-gold-600 shrink-0" />
               <span>Sample</span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-burgundy-900 hover:text-gold-600 focus:outline-none"
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-burgundy-900 hover:text-gold-600 focus:outline-none rounded-lg"
+              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -155,43 +156,50 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-ivory border-b border-ivory-border px-4 pt-3 pb-6 space-y-3">
-          <div className="bg-white p-3 rounded-lg border border-gold-200 text-xs mb-3">
-            <div className="font-semibold text-burgundy-900 mb-1 flex items-center gap-1">
+        <div className="lg:hidden bg-ivory border-b border-ivory-border px-4 pt-3 pb-6 space-y-3 max-h-[calc(100dvh-4.5rem)] overflow-y-auto">
+          <div className="bg-white p-3 rounded-xl border border-gold-200 text-xs mb-3 shadow-sm">
+            <div className="font-semibold text-burgundy-900 mb-1.5 flex items-center gap-1">
               <TrendingUp className="w-4 h-4 text-gold-600" /> Today's Gold Rates:
             </div>
             <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="bg-gold-50 p-1.5 rounded">
+              <div className="bg-gold-50 p-1.5 rounded-lg border border-gold-200/50">
                 <span className="block text-[10px] text-stone-500">22K Gold</span>
-                <span className="font-bold text-burgundy-900">₹{rates.gold22kPerGram}/g</span>
+                <span className="font-bold text-burgundy-900 text-xs">₹{rates.gold22kPerGram}/g</span>
               </div>
-              <div className="bg-gold-50 p-1.5 rounded">
+              <div className="bg-gold-50 p-1.5 rounded-lg border border-gold-200/50">
                 <span className="block text-[10px] text-stone-500">24K Pure</span>
-                <span className="font-bold text-burgundy-900">₹{rates.gold24kPerGram}/g</span>
+                <span className="font-bold text-burgundy-900 text-xs">₹{rates.gold24kPerGram}/g</span>
               </div>
-              <div className="bg-gold-50 p-1.5 rounded">
+              <div className="bg-gold-50 p-1.5 rounded-lg border border-gold-200/50">
                 <span className="block text-[10px] text-stone-500">Silver</span>
-                <span className="font-bold text-burgundy-900">₹{rates.silverPerGram}/g</span>
+                <span className="font-bold text-burgundy-900 text-xs">₹{rates.silverPerGram}/g</span>
               </div>
             </div>
           </div>
 
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-serif text-burgundy-950 hover:bg-gold-100 rounded-md"
-            >
-              {link.name}
-            </Link>
-          ))}
+          <nav className="space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className="min-h-[44px] flex items-center px-3 py-2 text-base font-serif text-burgundy-950 hover:bg-gold-100 rounded-lg active:bg-gold-200 transition"
+              >
+                {link.name}
+                {link.badge && (
+                  <span className="ml-2 bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    {link.badge}
+                  </span>
+                )}
+              </Link>
+            ))}
+          </nav>
 
-          <div className="pt-2 border-t border-ivory-border flex flex-col gap-2">
+          <div className="pt-3 border-t border-ivory-border flex flex-col gap-2.5">
             <Link
               to="/custom-sample"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-gold-500 hover:bg-gold-600 text-burgundy-950 font-semibold py-2.5 rounded-md text-sm flex items-center justify-center gap-2"
+              className="w-full min-h-[44px] text-center bg-gold-500 hover:bg-gold-600 text-burgundy-950 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-sm"
             >
               <UploadCloud className="w-4 h-4" /> Upload Jewellery Sample
             </Link>
@@ -199,14 +207,14 @@ export default function Navbar() {
               href={`https://wa.me/${whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center bg-emerald-600 text-white font-semibold py-2.5 rounded-md text-sm flex items-center justify-center gap-2"
+              className="w-full min-h-[44px] text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-sm"
             >
               <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
             </a>
             <Link
               to="/admin"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-center text-xs text-stone-500 hover:text-burgundy-900 py-1"
+              className="text-center text-xs text-stone-500 hover:text-burgundy-900 py-2 min-h-[44px] flex items-center justify-center"
             >
               Store Owner Dashboard Login →
             </Link>

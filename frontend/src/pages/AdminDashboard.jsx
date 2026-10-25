@@ -200,10 +200,10 @@ export default function AdminDashboard() {
   // Login Screen if not authenticated
   if (!token) {
     return (
-      <div className="min-h-screen bg-ivory flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-3xl p-8 border border-gold-300 shadow-luxury space-y-6">
+      <div className="min-h-screen bg-ivory flex items-center justify-center p-3 sm:p-4">
+        <div className="w-full max-w-md bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gold-300 shadow-luxury space-y-5 sm:space-y-6">
           <div className="text-center space-y-2">
-            <div className="w-12 h-12 bg-burgundy-950 text-gold-400 rounded-full flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 bg-burgundy-950 text-gold-400 rounded-full flex items-center justify-center mx-auto shadow-sm">
               <Lock className="w-6 h-6" />
             </div>
             <h2 className="font-serif text-2xl font-bold text-burgundy-950">
@@ -215,7 +215,7 @@ export default function AdminDashboard() {
           </div>
 
           {loginError && (
-            <div className="p-3 bg-rose-50 border border-rose-200 text-rose-800 rounded-xl text-xs flex items-center gap-2">
+            <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-800 rounded-xl text-xs flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
               <span>{loginError}</span>
             </div>
@@ -229,7 +229,7 @@ export default function AdminDashboard() {
                 required
                 value={loginForm.username}
                 onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
-                className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl text-sm"
+                className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-sm min-h-[44px]"
               />
             </div>
 
@@ -241,18 +241,18 @@ export default function AdminDashboard() {
                 placeholder="Enter admin password..."
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-                className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl text-sm"
+                className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-sm min-h-[44px]"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold py-3.5 rounded-xl text-sm transition shadow-md"
+              className="w-full min-h-[48px] bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold py-3.5 rounded-xl text-sm transition shadow-md flex items-center justify-center"
             >
               Sign In to Dashboard
             </button>
 
-            <div className="bg-stone-50 p-3 rounded-lg border border-stone-200 text-stone-500 text-[11px] leading-relaxed">
+            <div className="bg-stone-50 p-3 rounded-xl border border-stone-200 text-stone-500 text-[11px] leading-relaxed">
               💡 <strong>Default Demo Credentials:</strong><br />
               Username: <code className="text-burgundy-900 font-bold">admin</code><br />
               Password: <code className="text-burgundy-900 font-bold">DiwaliGold2026!</code>
@@ -264,30 +264,31 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-stone-50 py-8 px-4 sm:px-6 lg:px-8 text-stone-800">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-stone-50 py-6 sm:py-8 px-3 sm:px-6 lg:px-8 text-stone-800">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Top Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-6 rounded-2xl border border-stone-200 shadow-sm gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 sm:p-6 rounded-2xl border border-stone-200 shadow-sm gap-3 sm:gap-4">
           <div>
-            <span className="text-xs font-bold text-gold-600 uppercase tracking-widest">
+            <span className="text-[10px] sm:text-xs font-bold text-gold-600 uppercase tracking-widest block">
               Swarna Mahal Jewellers • Management Portal
             </span>
-            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-burgundy-950">
+            <h1 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-burgundy-950">
               Store Owner Control Center
             </h1>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-end">
             <button
               onClick={loadAdminData}
-              className="p-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs flex items-center gap-1 transition"
+              className="min-h-[44px] min-w-[44px] p-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs flex items-center justify-center gap-1 transition"
               title="Refresh Data"
+              aria-label="Refresh Dashboard Data"
             >
               <RefreshCw className="w-4 h-4" />
             </button>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 bg-stone-100 hover:bg-rose-50 hover:text-rose-700 text-stone-700 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition"
+              className="min-h-[44px] px-4 py-2 bg-stone-100 hover:bg-rose-50 hover:text-rose-700 text-stone-700 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition"
             >
               <LogOut className="w-4 h-4" /> Sign Out
             </button>
@@ -296,7 +297,7 @@ export default function AdminDashboard() {
 
         {/* Global Action Banner */}
         {actionSuccess && (
-          <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-xl text-xs font-semibold flex items-center gap-2 animate-fade-in">
+          <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-3.5 sm:p-4 rounded-xl text-xs font-semibold flex items-center gap-2 animate-fade-in">
             <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
             <span>{actionSuccess}</span>
           </div>
@@ -304,19 +305,19 @@ export default function AdminDashboard() {
 
         {/* 1-Click Demo Catalog Handover Alert */}
         {demoCount > 0 && (
-          <div className="bg-gradient-to-r from-amber-500/10 via-amber-50 to-amber-500/10 border-2 border-amber-400 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="bg-gradient-to-r from-amber-500/10 via-amber-50 to-amber-500/10 border-2 border-amber-400 p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
             <div className="space-y-1">
-              <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
-                <AlertTriangle className="w-5 h-5 text-amber-600" />
+              <div className="flex items-center gap-2 text-amber-900 font-bold text-xs sm:text-sm">
+                <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
                 <span>Demo Catalog Active ({demoCount} Sample Products Loaded)</span>
               </div>
-              <p className="text-xs text-amber-800">
+              <p className="text-xs text-amber-800 leading-relaxed">
                 These items use high-res web images from Unsplash to impress your client during the pitch. Once the deal is closed, click the button to remove all demo items in one click.
               </p>
             </div>
             <button
               onClick={handleClearDemoItems}
-              className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl transition shadow flex items-center gap-2 shrink-0"
+              className="min-h-[44px] bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 sm:px-5 py-2.5 rounded-xl transition shadow flex items-center justify-center gap-2 shrink-0 w-full sm:w-auto"
             >
               <Trash2 className="w-4 h-4" />
               <span>Clear Demo Products (1-Click Handover)</span>
@@ -325,51 +326,51 @@ export default function AdminDashboard() {
         )}
 
         {/* Metrics Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
-            <span className="text-xs text-stone-500 block">Total Catalogue Items</span>
-            <span className="text-2xl font-serif font-bold text-burgundy-950 mt-1 block">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+          <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-stone-200 shadow-sm">
+            <span className="text-[11px] sm:text-xs text-stone-500 block truncate">Total Items</span>
+            <span className="text-xl sm:text-2xl font-serif font-bold text-burgundy-950 mt-1 block">
               {products.length}
             </span>
             <span className="text-[10px] text-stone-400">({demoCount} demo, {products.length - demoCount} custom)</span>
           </div>
-          <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
-            <span className="text-xs text-stone-500 block">Custom Sample Uploads</span>
-            <span className="text-2xl font-serif font-bold text-amber-700 mt-1 block">
+          <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-stone-200 shadow-sm">
+            <span className="text-[11px] sm:text-xs text-stone-500 block truncate">Sample Uploads</span>
+            <span className="text-xl sm:text-2xl font-serif font-bold text-amber-700 mt-1 block">
               {samples.length}
             </span>
-            <span className="text-[10px] text-stone-400">Bespoke design requests</span>
+            <span className="text-[10px] text-stone-400">Bespoke requests</span>
           </div>
-          <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
-            <span className="text-xs text-stone-500 block">Customer Enquiries</span>
-            <span className="text-2xl font-serif font-bold text-emerald-700 mt-1 block">
+          <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-stone-200 shadow-sm">
+            <span className="text-[11px] sm:text-xs text-stone-500 block truncate">Enquiries</span>
+            <span className="text-xl sm:text-2xl font-serif font-bold text-emerald-700 mt-1 block">
               {enquiries.length}
             </span>
-            <span className="text-[10px] text-stone-400">Viewing & booking leads</span>
+            <span className="text-[10px] text-stone-400">Viewing leads</span>
           </div>
-          <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
-            <span className="text-xs text-stone-500 block">Live 22K Gold Rate</span>
-            <span className="text-2xl font-serif font-bold text-burgundy-950 mt-1 block">
+          <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-stone-200 shadow-sm">
+            <span className="text-[11px] sm:text-xs text-stone-500 block truncate">Live 22K Rate</span>
+            <span className="text-xl sm:text-2xl font-serif font-bold text-burgundy-950 mt-1 block">
               ₹{contextRates.gold22kPerGram}/g
             </span>
-            <span className="text-[10px] text-emerald-600 font-semibold">Active pricing benchmark</span>
+            <span className="text-[10px] text-emerald-600 font-semibold truncate block">Active benchmark</span>
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <div className="flex border-b border-stone-200 bg-white rounded-t-2xl px-4 pt-2 gap-2">
+        {/* Navigation Tabs - Horizontally Scrollable on Mobile */}
+        <div className="overflow-x-auto scrollbar-none flex border-b border-stone-200 bg-white rounded-t-2xl px-2 sm:px-4 pt-2 gap-1 sm:gap-2 whitespace-nowrap">
           {[
             { id: 'products', label: `Products (${products.length})` },
-            { id: 'rates', label: 'Daily Gold & Silver Rates' },
-            { id: 'samples', label: `Custom Sample Requests (${samples.length})` },
-            { id: 'enquiries', label: `Customer Enquiries (${enquiries.length})` },
+            { id: 'rates', label: 'Daily Gold Rates' },
+            { id: 'samples', label: `Custom Samples (${samples.length})` },
+            { id: 'enquiries', label: `Enquiries (${enquiries.length})` },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 transition ${
+              className={`min-h-[44px] px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold border-b-2 transition whitespace-nowrap flex items-center ${
                 activeTab === tab.id
-                  ? 'border-burgundy-900 text-burgundy-900'
+                  ? 'border-burgundy-900 text-burgundy-900 font-bold'
                   : 'border-transparent text-stone-500 hover:text-stone-800'
               }`}
             >
@@ -380,10 +381,10 @@ export default function AdminDashboard() {
 
         {/* Tab 1: Product Management */}
         {activeTab === 'products' && (
-          <div className="bg-white rounded-b-2xl p-6 border border-stone-200 shadow-sm space-y-6">
-            <div className="flex justify-between items-center">
+          <div className="bg-white rounded-b-2xl p-4 sm:p-6 border border-stone-200 shadow-sm space-y-5 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <h2 className="font-serif text-lg font-bold text-burgundy-950">
-                Jewellery Inventory
+                Jewellery Inventory ({products.length})
               </h2>
               <button
                 onClick={() => {
@@ -411,14 +412,93 @@ export default function AdminDashboard() {
                   });
                   setProductModalOpen(true);
                 }}
-                className="bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition"
+                className="w-full sm:w-auto min-h-[44px] bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow"
               >
                 <Plus className="w-4 h-4" /> Add New Ornament
               </button>
             </div>
 
-            {/* Products Table */}
-            <div className="overflow-x-auto">
+            {/* Products Mobile Card View (< md) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 md:hidden">
+              {products.map((p) => {
+                const price = p.price || {};
+                return (
+                  <div key={p.id} className="bg-stone-50 border border-stone-200 rounded-xl p-3.5 space-y-2.5 shadow-sm">
+                    <div className="flex gap-3 items-center">
+                      <img
+                        src={p.images?.[0]?.url || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200'}
+                        alt={p.title}
+                        className="w-14 h-14 rounded-lg object-cover border border-stone-200 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <span className="font-bold text-burgundy-950 block text-xs truncate">{p.title}</span>
+                        <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
+                          <span className="text-[10px] text-gold-700 font-semibold">{p.category}</span>
+                          <span className="text-[10px] text-stone-400 font-mono">({p.sku})</span>
+                          {p.isDemoItem && (
+                            <span className="text-[9px] bg-amber-100 text-amber-800 px-1 py-0.2 rounded font-semibold">
+                              Demo
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-1.5 text-center bg-white p-2 rounded-lg border border-stone-200 text-[11px]">
+                      <div>
+                        <span className="text-stone-400 block text-[9px]">Purity</span>
+                        <span className="font-bold text-stone-800">{p.purity}</span>
+                      </div>
+                      <div>
+                        <span className="text-stone-400 block text-[9px]">Net Wt</span>
+                        <span className="font-bold text-stone-800">{p.netGoldWeightGrams}g</span>
+                      </div>
+                      <div>
+                        <span className="text-stone-400 block text-[9px]">Making</span>
+                        <span className="font-bold text-stone-800">
+                          {p.makingChargeType === 'FixedPerGram' ? `₹${p.makingChargeValue}/g` : `${p.makingChargeValue}%`}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-1 border-t border-stone-200/60">
+                      <div>
+                        <span className="text-[9px] text-stone-400 block">Live Price</span>
+                        <span className="font-serif font-bold text-burgundy-950 text-sm">
+                          ₹{price.finalPrice?.toLocaleString('en-IN')}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => {
+                            setEditingProductId(p.id);
+                            setProductForm({
+                              ...p,
+                              offerPrice: p.offerPrice || '',
+                              imageUrl: p.images?.[0]?.url || '',
+                            });
+                            setProductModalOpen(true);
+                          }}
+                          className="min-h-[38px] px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-xs font-semibold text-stone-700 hover:text-burgundy-900 flex items-center gap-1"
+                        >
+                          <Edit3 className="w-3.5 h-3.5" /> Edit
+                        </button>
+                        <button
+                          onClick={() => handleDeleteProduct(p.id, p.title)}
+                          className="min-h-[38px] px-2.5 py-1.5 bg-white border border-stone-200 rounded-lg text-xs font-semibold text-stone-400 hover:text-rose-600 flex items-center"
+                          aria-label={`Delete ${p.title}`}
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop Products Table (>= md) */}
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-stone-200 text-stone-500 uppercase tracking-wider">
@@ -502,9 +582,9 @@ export default function AdminDashboard() {
 
         {/* Tab 2: Daily Gold Rates Updater */}
         {activeTab === 'rates' && (
-          <div className="bg-white rounded-b-2xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-6">
+          <div className="bg-white rounded-b-2xl p-4 sm:p-6 lg:p-8 border border-stone-200 shadow-sm space-y-5 sm:space-y-6">
             <div>
-              <h2 className="font-serif text-xl font-bold text-burgundy-950">
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-burgundy-950">
                 Manage Daily Bullion Benchmark Rates
               </h2>
               <p className="text-xs text-stone-500 mt-1">
@@ -512,8 +592,8 @@ export default function AdminDashboard() {
               </p>
             </div>
 
-            <form onSubmit={handleSaveRates} className="space-y-6 max-w-2xl text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSaveRates} className="space-y-5 sm:space-y-6 max-w-2xl text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
                   <label className="block font-semibold text-stone-700 mb-1">
                     24K Pure Gold (per gram in ₹) *
@@ -524,7 +604,7 @@ export default function AdminDashboard() {
                     required
                     value={goldRatesForm.gold24kPerGram}
                     onChange={(e) => setGoldRatesForm({ ...goldRatesForm, gold24kPerGram: parseFloat(e.target.value) || 0 })}
-                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900"
+                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900 min-h-[44px]"
                   />
                   <span className="text-[10px] text-stone-400 mt-0.5 block">Standard: ₹8,125/g</span>
                 </div>
@@ -539,7 +619,7 @@ export default function AdminDashboard() {
                     required
                     value={goldRatesForm.gold22kPerGram}
                     onChange={(e) => setGoldRatesForm({ ...goldRatesForm, gold22kPerGram: parseFloat(e.target.value) || 0 })}
-                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900"
+                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900 min-h-[44px]"
                   />
                   <span className="text-[10px] text-stone-400 mt-0.5 block">Standard: ₹7,450/g</span>
                 </div>
@@ -553,7 +633,7 @@ export default function AdminDashboard() {
                     step="1"
                     value={goldRatesForm.gold18kPerGram}
                     onChange={(e) => setGoldRatesForm({ ...goldRatesForm, gold18kPerGram: parseFloat(e.target.value) || 0 })}
-                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900"
+                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900 min-h-[44px]"
                   />
                   <span className="text-[10px] text-stone-400 mt-0.5 block">Standard: ₹6,095/g</span>
                 </div>
@@ -567,7 +647,7 @@ export default function AdminDashboard() {
                     step="0.5"
                     value={goldRatesForm.silverPerGram}
                     onChange={(e) => setGoldRatesForm({ ...goldRatesForm, silverPerGram: parseFloat(e.target.value) || 0 })}
-                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900"
+                    className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base text-stone-900 min-h-[44px]"
                   />
                   <span className="text-[10px] text-stone-400 mt-0.5 block">Standard: ₹98.5/g</span>
                 </div>
@@ -579,7 +659,7 @@ export default function AdminDashboard() {
                   id="override"
                   checked={goldRatesForm.useManualOverride}
                   onChange={(e) => setGoldRatesForm({ ...goldRatesForm, useManualOverride: e.target.checked })}
-                  className="rounded text-burgundy-950 focus:ring-gold-500"
+                  className="rounded text-burgundy-950 focus:ring-gold-500 w-4 h-4"
                 />
                 <label htmlFor="override" className="text-xs text-stone-700 font-medium">
                   Use manual shop association rates instead of automated market feed
@@ -588,7 +668,7 @@ export default function AdminDashboard() {
 
               <button
                 type="submit"
-                className="bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-6 py-3.5 rounded-xl text-xs transition shadow"
+                className="w-full sm:w-auto min-h-[48px] bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-6 py-3 rounded-xl text-xs transition shadow flex items-center justify-center"
               >
                 Save & Recalculate Storefront Prices
               </button>
@@ -598,7 +678,7 @@ export default function AdminDashboard() {
 
         {/* Tab 3: Custom Sample Requests Inbox */}
         {activeTab === 'samples' && (
-          <div className="bg-white rounded-b-2xl p-6 border border-stone-200 shadow-sm space-y-6">
+          <div className="bg-white rounded-b-2xl p-4 sm:p-6 border border-stone-200 shadow-sm space-y-5 sm:space-y-6">
             <h2 className="font-serif text-lg font-bold text-burgundy-950">
               Customer Bespoke Design Samples & Quotes
             </h2>
@@ -608,16 +688,16 @@ export default function AdminDashboard() {
                 No custom design samples submitted yet.
               </p>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {samples.map((s) => (
-                  <div key={s.id} className="border border-stone-200 rounded-2xl p-5 space-y-3 bg-stone-50/50">
-                    <div className="flex gap-4">
+                  <div key={s.id} className="border border-stone-200 rounded-2xl p-4 sm:p-5 space-y-3 bg-stone-50/50">
+                    <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
                       <img
                         src={s.sampleImageUrl}
                         alt="Customer Reference"
-                        className="w-24 h-24 object-cover rounded-xl border border-stone-300 shrink-0"
+                        className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl border border-stone-300 shrink-0 mx-auto xs:mx-0"
                       />
-                      <div className="space-y-1 text-xs">
+                      <div className="space-y-1 text-xs flex-1">
                         <span className="font-bold text-sm text-burgundy-950 block">{s.customerName}</span>
                         <span className="text-stone-600 block">📞 {s.phoneNumber}</span>
                         {s.city && <span className="text-stone-500 block">📍 {s.city}</span>}
@@ -642,11 +722,11 @@ export default function AdminDashboard() {
                       </p>
                     )}
 
-                    <div className="flex items-center justify-between pt-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-2">
                       <select
                         value={s.status}
                         onChange={(e) => handleSampleStatus(s.id, e.target.value)}
-                        className="text-xs p-1.5 border border-stone-300 rounded-lg bg-white"
+                        className="text-xs p-2 border border-stone-300 rounded-lg bg-white min-h-[38px]"
                       >
                         <option value="New">Status: New</option>
                         <option value="Quoted">Status: Quoted</option>
@@ -659,7 +739,7 @@ export default function AdminDashboard() {
                         href={`https://wa.me/${s.phoneNumber.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(s.customerName)},%20this%20is%20Swarna%20Mahal%20Jewellers%20regarding%20your%20custom%20design%20sample%20request.`}
                         target="_blank"
                         rel="noreferrer"
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-3.5 py-1.5 rounded-lg font-medium flex items-center gap-1"
+                        className="min-h-[40px] bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-3.5 py-1.5 rounded-lg font-medium flex items-center justify-center gap-1 transition"
                       >
                         <MessageCircle className="w-3.5 h-3.5" /> Reply on WhatsApp
                       </a>
@@ -673,7 +753,7 @@ export default function AdminDashboard() {
 
         {/* Tab 4: Customer Enquiries */}
         {activeTab === 'enquiries' && (
-          <div className="bg-white rounded-b-2xl p-6 border border-stone-200 shadow-sm space-y-4">
+          <div className="bg-white rounded-b-2xl p-4 sm:p-6 border border-stone-200 shadow-sm space-y-4">
             <h2 className="font-serif text-lg font-bold text-burgundy-950">
               In-Store Viewing Appointments & Enquiries
             </h2>
@@ -682,7 +762,7 @@ export default function AdminDashboard() {
             ) : (
               <div className="divide-y divide-stone-100 text-xs">
                 {enquiries.map((e) => (
-                  <div key={e.id} className="py-3 flex justify-between items-center">
+                  <div key={e.id} className="py-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2.5">
                     <div>
                       <span className="font-bold text-burgundy-950">{e.customerName}</span> ({e.phoneNumber})
                       <p className="text-stone-500 text-[11px] mt-0.5">{e.message}</p>
@@ -690,7 +770,7 @@ export default function AdminDashboard() {
                     </div>
                     <a
                       href={`tel:${e.phoneNumber.replace(/[^0-9]/g, '')}`}
-                      className="bg-stone-100 hover:bg-stone-200 text-stone-800 px-3 py-1.5 rounded-lg font-semibold"
+                      className="min-h-[38px] bg-stone-100 hover:bg-stone-200 text-stone-800 px-3.5 py-1.5 rounded-lg font-semibold flex items-center justify-center self-start sm:self-auto"
                     >
                       Call Customer
                     </a>
@@ -702,19 +782,25 @@ export default function AdminDashboard() {
         )}
       </div>
 
-      {/* Modal: Add or Edit Product */}
+      {/* Modal: Add or Edit Product - Constrained & Mobile Scrollable */}
       {productModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto border border-gold-300 shadow-2xl space-y-5 text-xs">
-            <div className="flex justify-between items-center border-b border-stone-200 pb-3">
-              <h3 className="font-serif text-xl font-bold text-burgundy-950">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full p-4 sm:p-6 max-h-[92dvh] flex flex-col border border-gold-300 shadow-2xl space-y-4 text-xs overflow-hidden">
+            <div className="flex justify-between items-center border-b border-stone-200 pb-3 shrink-0">
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-burgundy-950">
                 {editingProductId ? 'Edit Ornament Specifications' : 'Add New Jewellery Piece'}
               </h3>
-              <button onClick={() => setProductModalOpen(false)} className="text-stone-400 hover:text-stone-700 text-lg">✕</button>
+              <button
+                onClick={() => setProductModalOpen(false)}
+                className="text-stone-400 hover:text-stone-700 p-1 min-h-[36px] min-w-[36px] flex items-center justify-center text-lg"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
             </div>
 
-            <form onSubmit={handleSaveProduct} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSaveProduct} className="overflow-y-auto flex-1 pr-1 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-semibold mb-1">Product Title *</label>
                   <input
@@ -722,7 +808,7 @@ export default function AdminDashboard() {
                     required
                     value={productForm.title}
                     onChange={(e) => setProductForm({ ...productForm, title: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs min-h-[42px]"
                     placeholder="e.g. Royal 22K Kundan Choker"
                   />
                 </div>
@@ -734,7 +820,7 @@ export default function AdminDashboard() {
                     required
                     value={productForm.sku}
                     onChange={(e) => setProductForm({ ...productForm, sku: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs min-h-[42px]"
                   />
                 </div>
 
@@ -743,7 +829,7 @@ export default function AdminDashboard() {
                   <select
                     value={productForm.category}
                     onChange={(e) => setProductForm({ ...productForm, category: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs min-h-[42px]"
                   >
                     <option value="Bridal Jewellery">Bridal Jewellery</option>
                     <option value="Necklaces">Necklaces</option>
@@ -759,7 +845,7 @@ export default function AdminDashboard() {
                   <select
                     value={productForm.purity}
                     onChange={(e) => setProductForm({ ...productForm, purity: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs min-h-[42px]"
                   >
                     <option value="22K">22K Gold (916 Hallmarked)</option>
                     <option value="24K">24K Pure Gold (999)</option>
@@ -777,7 +863,7 @@ export default function AdminDashboard() {
                     required
                     value={productForm.grossWeightGrams}
                     onChange={(e) => setProductForm({ ...productForm, grossWeightGrams: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl font-bold"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base sm:text-xs min-h-[42px]"
                   />
                 </div>
 
@@ -789,7 +875,7 @@ export default function AdminDashboard() {
                     required
                     value={productForm.netGoldWeightGrams}
                     onChange={(e) => setProductForm({ ...productForm, netGoldWeightGrams: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl font-bold"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base sm:text-xs min-h-[42px]"
                   />
                 </div>
 
@@ -799,7 +885,7 @@ export default function AdminDashboard() {
                     <select
                       value={productForm.makingChargeType}
                       onChange={(e) => setProductForm({ ...productForm, makingChargeType: e.target.value })}
-                      className="p-2.5 bg-stone-50 border border-stone-300 rounded-xl w-32"
+                      className="p-2.5 bg-stone-50 border border-stone-300 rounded-xl w-32 text-base sm:text-xs min-h-[42px]"
                     >
                       <option value="Percentage">% of Bullion</option>
                       <option value="FixedPerGram">Fixed ₹/gram</option>
@@ -809,7 +895,7 @@ export default function AdminDashboard() {
                       step="0.1"
                       value={productForm.makingChargeValue}
                       onChange={(e) => setProductForm({ ...productForm, makingChargeValue: e.target.value })}
-                      className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl font-bold"
+                      className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl font-bold text-base sm:text-xs min-h-[42px]"
                     />
                   </div>
                 </div>
@@ -820,7 +906,7 @@ export default function AdminDashboard() {
                     type="number"
                     value={productForm.gemstoneCharges}
                     onChange={(e) => setProductForm({ ...productForm, gemstoneCharges: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs min-h-[42px]"
                   />
                 </div>
 
@@ -832,6 +918,7 @@ export default function AdminDashboard() {
                       id="specialOffer"
                       checked={productForm.hasSpecialOffer}
                       onChange={(e) => setProductForm({ ...productForm, hasSpecialOffer: e.target.checked })}
+                      className="w-4 h-4"
                     />
                     <label htmlFor="specialOffer" className="font-bold text-burgundy-950">
                       Enable Festive Special Offer Price (Fixed Price Override)
@@ -844,14 +931,14 @@ export default function AdminDashboard() {
                         placeholder="Offer Price in ₹ (e.g. 299000)"
                         value={productForm.offerPrice}
                         onChange={(e) => setProductForm({ ...productForm, offerPrice: e.target.value })}
-                        className="p-2 bg-white border border-stone-300 rounded-lg text-xs"
+                        className="p-2 bg-white border border-stone-300 rounded-lg text-base sm:text-xs min-h-[40px]"
                       />
                       <input
                         type="text"
                         placeholder="Offer Badge (e.g. Diwali Dhamaka)"
                         value={productForm.offerBadgeText}
                         onChange={(e) => setProductForm({ ...productForm, offerBadgeText: e.target.value })}
-                        className="p-2 bg-white border border-stone-300 rounded-lg text-xs"
+                        className="p-2 bg-white border border-stone-300 rounded-lg text-base sm:text-xs min-h-[40px]"
                       />
                     </div>
                   )}
@@ -864,7 +951,7 @@ export default function AdminDashboard() {
                     required
                     value={productForm.imageUrl}
                     onChange={(e) => setProductForm({ ...productForm, imageUrl: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs min-h-[42px]"
                     placeholder="https://..."
                   />
                 </div>
@@ -875,22 +962,22 @@ export default function AdminDashboard() {
                     rows={3}
                     value={productForm.description}
                     onChange={(e) => setProductForm({ ...productForm, description: e.target.value })}
-                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl"
+                    className="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-xs"
                   ></textarea>
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3 pt-3 border-t border-stone-200">
+              <div className="flex flex-col-reverse sm:flex-row justify-end gap-2.5 sm:gap-3 pt-3 border-t border-stone-200 shrink-0">
                 <button
                   type="button"
                   onClick={() => setProductModalOpen(false)}
-                  className="px-4 py-2 border border-stone-300 rounded-xl font-semibold"
+                  className="min-h-[44px] px-4 py-2 border border-stone-300 rounded-xl font-semibold flex items-center justify-center transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold rounded-xl shadow"
+                  className="min-h-[44px] px-6 py-2 bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold rounded-xl shadow flex items-center justify-center transition"
                 >
                   Save Ornament
                 </button>

@@ -94,27 +94,27 @@ export default function ProductDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-ivory py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-10">
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs text-stone-500">
-          <Link to="/" className="hover:text-burgundy-900">Home</Link>
-          <span>/</span>
-          <Link to="/collections" className="hover:text-burgundy-900">Collections</Link>
-          <span>/</span>
-          <Link to={`/collections?category=${encodeURIComponent(product.category)}`} className="hover:text-burgundy-900">
+    <div className="min-h-screen bg-ivory py-6 sm:py-10 px-3 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-10">
+        {/* Breadcrumb Navigation - Horizontally Scrollable on small screens */}
+        <div className="flex items-center gap-2 text-xs text-stone-500 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+          <Link to="/" className="hover:text-burgundy-900 shrink-0">Home</Link>
+          <span className="shrink-0">/</span>
+          <Link to="/collections" className="hover:text-burgundy-900 shrink-0">Collections</Link>
+          <span className="shrink-0">/</span>
+          <Link to={`/collections?category=${encodeURIComponent(product.category)}`} className="hover:text-burgundy-900 shrink-0">
             {product.category}
           </Link>
-          <span>/</span>
-          <span className="text-burgundy-950 font-semibold truncate max-w-xs">{product.title}</span>
+          <span className="shrink-0">/</span>
+          <span className="text-burgundy-950 font-semibold truncate max-w-[200px] sm:max-w-xs">{product.title}</span>
         </div>
 
         {/* Product Showcase Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 bg-white rounded-3xl p-6 sm:p-10 border border-ivory-border shadow-luxury">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-10 border border-ivory-border shadow-luxury">
           {/* Left Column: Image Gallery */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-6 space-y-3.5 sm:space-y-4">
             {/* Main Viewport */}
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-stone-100 border border-stone-200">
+            <div className="relative aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-100 border border-stone-200">
               <img
                 src={images[activeImageIndex]?.url}
                 alt={images[activeImageIndex]?.alt || product.title}
@@ -122,13 +122,13 @@ export default function ProductDetail() {
               />
 
               {/* Badges */}
-              <div className="absolute top-4 left-4 flex flex-col gap-1.5">
-                <span className="bg-burgundy-950/85 backdrop-blur-md text-gold-300 text-xs font-bold px-3 py-1 rounded-full border border-gold-500/30 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-gold-400" /> {product.purity} BIS Hallmarked
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex flex-col gap-1 sm:gap-1.5">
+                <span className="bg-burgundy-950/85 backdrop-blur-md text-gold-300 text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-gold-500/30 flex items-center gap-1.5">
+                  <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold-400" /> {product.purity} BIS Hallmarked
                 </span>
                 {product.hasSpecialOffer && (
-                  <span className="bg-gradient-to-r from-amber-600 to-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow">
-                    <Sparkles className="w-3.5 h-3.5" /> {product.offerBadgeText || 'Diwali Special Offer'}
+                  <span className="bg-gradient-to-r from-amber-600 to-amber-500 text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full flex items-center gap-1.5 shadow">
+                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> {product.offerBadgeText || 'Diwali Special Offer'}
                   </span>
                 )}
               </div>
@@ -136,14 +136,14 @@ export default function ProductDetail() {
 
             {/* Thumbnails */}
             {images.length > 1 && (
-              <div className="flex gap-3 overflow-x-auto pb-2">
+              <div className="flex gap-2.5 sm:gap-3 overflow-x-auto pb-2 scrollbar-none snap-x">
                 {images.map((img, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setActiveImageIndex(idx)}
-                    className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition shrink-0 ${
-                      activeImageIndex === idx ? 'border-gold-500 shadow-md' : 'border-stone-200 opacity-70 hover:opacity-100'
+                    className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 transition shrink-0 snap-start ${
+                      activeImageIndex === idx ? 'border-gold-500 shadow-md ring-1 ring-gold-400' : 'border-stone-200 opacity-70 hover:opacity-100'
                     }`}
                   >
                     <img src={img.url} alt={img.alt || 'Thumbnail'} className="w-full h-full object-cover" />
@@ -154,34 +154,34 @@ export default function ProductDetail() {
           </div>
 
           {/* Right Column: Specifications & Pricing */}
-          <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs uppercase font-bold text-gold-600 tracking-widest">
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6 flex flex-col justify-between">
+            <div className="space-y-3.5 sm:space-y-4">
+              <div className="flex items-center justify-between text-xs">
+                <span className="uppercase font-bold text-gold-600 tracking-widest text-[11px] sm:text-xs truncate max-w-[65%]">
                   {product.category} {product.subCategory ? `• ${product.subCategory}` : ''}
                 </span>
-                <span className="text-xs text-stone-400 font-mono">SKU: {product.sku}</span>
+                <span className="text-stone-400 font-mono text-[11px]">SKU: {product.sku}</span>
               </div>
 
-              <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-burgundy-950 leading-tight">
+              <h1 className="font-serif text-xl xs:text-2xl sm:text-3xl font-extrabold text-burgundy-950 leading-tight">
                 {product.title}
               </h1>
 
               {/* Dynamic Live Price Presentation */}
-              <div className="bg-gradient-to-br from-ivory to-gold-50 p-5 rounded-2xl border border-gold-300">
-                <div className="flex items-center justify-between text-xs text-stone-500 mb-1">
+              <div className="bg-gradient-to-br from-ivory to-gold-50 p-4 sm:p-5 rounded-2xl border border-gold-300">
+                <div className="flex flex-col xs:flex-row xs:items-center justify-between text-[11px] sm:text-xs text-stone-500 mb-1 gap-1">
                   <span>Today's Estimated Market Value:</span>
                   <span className="text-emerald-700 font-semibold flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Live IBJA Spot Calculation
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span> Live IBJA Spot Calculation
                   </span>
                 </div>
 
-                <div className="flex items-baseline gap-3 my-1">
-                  <span className="font-serif text-3xl sm:text-4xl font-extrabold text-burgundy-950">
+                <div className="flex items-baseline gap-2.5 my-1 flex-wrap">
+                  <span className="font-serif text-2xl xs:text-3xl sm:text-4xl font-extrabold text-burgundy-950">
                     {priceData.formattedPrice}
                   </span>
                   {priceData.discountValue > 0 && (
-                    <span className="text-sm text-stone-400 line-through">
+                    <span className="text-xs sm:text-sm text-stone-400 line-through">
                       {priceData.formattedGross}
                     </span>
                   )}
@@ -196,10 +196,10 @@ export default function ProductDetail() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(true)}
-                  className="mt-3 text-xs font-semibold text-gold-700 hover:text-gold-900 underline flex items-center gap-1"
+                  className="mt-2.5 text-xs font-semibold text-gold-700 hover:text-gold-900 underline flex items-center gap-1"
                 >
-                  <Scale className="w-3.5 h-3.5" />
-                  <span>View Itemized Price Breakup (Gold vs Making Charges)</span>
+                  <Scale className="w-3.5 h-3.5 shrink-0" />
+                  <span>View Itemized Price Breakup (Gold vs Making)</span>
                 </button>
               </div>
 
@@ -208,56 +208,56 @@ export default function ProductDetail() {
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-500">
                   Certified Weight & Purity Breakdown
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                  <div className="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                <div className="grid grid-cols-2 xs:grid-cols-4 gap-2 text-xs">
+                  <div className="bg-stone-50 p-2.5 sm:p-3 rounded-xl border border-stone-200">
                     <span className="text-stone-500 block text-[10px]">Net Gold Weight</span>
-                    <span className="font-bold text-burgundy-950 text-sm">{product.netGoldWeightGrams} g</span>
+                    <span className="font-bold text-burgundy-950 text-xs sm:text-sm">{product.netGoldWeightGrams} g</span>
                   </div>
-                  <div className="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                  <div className="bg-stone-50 p-2.5 sm:p-3 rounded-xl border border-stone-200">
                     <span className="text-stone-500 block text-[10px]">Gross Weight</span>
-                    <span className="font-bold text-burgundy-950 text-sm">{product.grossWeightGrams} g</span>
+                    <span className="font-bold text-burgundy-950 text-xs sm:text-sm">{product.grossWeightGrams} g</span>
                   </div>
-                  <div className="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                  <div className="bg-stone-50 p-2.5 sm:p-3 rounded-xl border border-stone-200">
                     <span className="text-stone-500 block text-[10px]">Metal Purity</span>
-                    <span className="font-bold text-burgundy-950 text-sm">{product.purity}</span>
+                    <span className="font-bold text-burgundy-950 text-xs sm:text-sm">{product.purity}</span>
                   </div>
-                  <div className="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                  <div className="bg-stone-50 p-2.5 sm:p-3 rounded-xl border border-stone-200">
                     <span className="text-stone-500 block text-[10px]">Hallmarking</span>
-                    <span className="font-bold text-emerald-700 text-sm">HUID Certified</span>
+                    <span className="font-bold text-emerald-700 text-xs sm:text-sm">HUID Certified</span>
                   </div>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="text-xs sm:text-sm text-stone-600 leading-relaxed pt-2">
+              <div className="text-xs sm:text-sm text-stone-600 leading-relaxed pt-1">
                 <p>{product.description}</p>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="space-y-4 pt-4 border-t border-stone-200">
+            <div className="space-y-3.5 sm:space-y-4 pt-4 border-t border-stone-200">
               {/* Primary WhatsApp Action */}
               <a
                 href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md"
+                className="w-full min-h-[48px] bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5 shrink-0" />
                 <span>Inquire & Reserve on WhatsApp</span>
               </a>
 
               {/* Book Showroom Consultation */}
-              <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200">
+              <div className="bg-stone-50 p-3.5 sm:p-4 rounded-2xl border border-stone-200">
                 {bookingSuccess ? (
                   <div className="text-center py-2 text-xs text-emerald-800 flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Your private showroom viewing request has been recorded. Our staff will confirm your slot via call.</span>
                   </div>
                 ) : (
-                  <form onSubmit={handleBookViewing} className="space-y-3">
+                  <form onSubmit={handleBookViewing} className="space-y-2.5 sm:space-y-3">
                     <div className="flex items-center gap-2 text-xs font-semibold text-burgundy-950">
-                      <Calendar className="w-4 h-4 text-gold-600" />
+                      <Calendar className="w-4 h-4 text-gold-600 shrink-0" />
                       <span>Book VIP In-Store Viewing at Zaveri Bazaar</span>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -267,7 +267,7 @@ export default function ProductDetail() {
                         placeholder="Your Name"
                         value={bookingForm.customerName}
                         onChange={(e) => setBookingForm({ ...bookingForm, customerName: e.target.value })}
-                        className="bg-white border border-stone-300 rounded-lg p-2 text-xs text-stone-900"
+                        className="bg-white border border-stone-300 rounded-xl p-2.5 text-base sm:text-xs text-stone-900 min-h-[44px]"
                       />
                       <input
                         type="tel"
@@ -275,11 +275,11 @@ export default function ProductDetail() {
                         placeholder="Phone Number"
                         value={bookingForm.phoneNumber}
                         onChange={(e) => setBookingForm({ ...bookingForm, phoneNumber: e.target.value })}
-                        className="bg-white border border-stone-300 rounded-lg p-2 text-xs text-stone-900"
+                        className="bg-white border border-stone-300 rounded-xl p-2.5 text-base sm:text-xs text-stone-900 min-h-[44px]"
                       />
                       <button
                         type="submit"
-                        className="bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 text-xs font-semibold rounded-lg py-2 transition"
+                        className="min-h-[44px] bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 text-xs font-semibold rounded-xl py-2 px-3 transition flex items-center justify-center"
                       >
                         Request Appointment
                       </button>

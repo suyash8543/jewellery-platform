@@ -53,35 +53,35 @@ export default function CheckGoldRates() {
   ];
 
   return (
-    <div className="min-h-screen bg-ivory py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <div className="min-h-screen bg-ivory py-8 sm:py-12 px-3 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
         {/* Header Section */}
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 bg-burgundy-950 text-gold-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-gold-500/30">
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+        <div className="text-center space-y-3 px-2">
+          <div className="inline-flex items-center gap-1.5 bg-burgundy-950 text-gold-300 px-3.5 py-1 rounded-full text-[11px] xs:text-xs font-semibold tracking-wider uppercase border border-gold-500/30">
+            <TrendingUp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
             <span>Today's Official Bullion Benchmark</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-burgundy-950">
+          <h1 className="font-serif text-2xl xs:text-3xl sm:text-5xl font-extrabold text-burgundy-950 leading-tight">
             Live Gold & Silver Rates in India
           </h1>
 
-          <p className="text-stone-600 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-stone-600 text-xs xs:text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Transparent, real-time bullion spot prices updated twice daily from official market sessions. All jewellery at Swarna Mahal is certified 100% BIS Hallmarked with unique HUID.
           </p>
 
-          <div className="flex items-center justify-center gap-2 text-xs text-stone-500 pt-1">
-            <Clock className="w-3.5 h-3.5 text-stone-400" />
+          <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] xs:text-xs text-stone-500 pt-1">
+            <Clock className="w-3.5 h-3.5 text-stone-400 shrink-0" />
             <span>Last Updated: {new Date(rates.lastUpdatedAt).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })} • Source: {rates.source}</span>
           </div>
         </div>
 
         {/* Live Rates Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {rateCards.map((card) => (
             <div
               key={card.title}
-              className={`rounded-2xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${
+              className={`rounded-2xl p-5 sm:p-6 transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${
                 card.highlight
                   ? 'bg-gradient-to-br from-burgundy-950 to-burgundy-900 text-white shadow-luxury border-2 border-gold-400'
                   : 'bg-white text-stone-800 border border-stone-200 shadow-sm hover:shadow-md'
@@ -100,19 +100,19 @@ export default function CheckGoldRates() {
                   {card.purity}
                 </span>
 
-                <h3 className={`font-serif text-xl font-bold mb-3 ${
+                <h3 className={`font-serif text-lg sm:text-xl font-bold mb-3 ${
                   card.highlight ? 'text-white' : 'text-burgundy-950'
                 }`}>
                   {card.title}
                 </h3>
 
                 {/* Rates */}
-                <div className="space-y-1.5 my-4">
+                <div className="space-y-1.5 my-3 sm:my-4">
                   <div className="flex items-baseline justify-between border-b border-stone-100 pb-2">
                     <span className={`text-xs ${card.highlight ? 'text-stone-300' : 'text-stone-500'}`}>
                       Rate per Gram:
                     </span>
-                    <span className={`text-2xl font-bold font-serif ${
+                    <span className={`text-xl sm:text-2xl font-bold font-serif ${
                       card.highlight ? 'text-gold-300' : 'text-burgundy-950'
                     }`}>
                       ₹{card.ratePerGram?.toLocaleString('en-IN')}
@@ -136,10 +136,10 @@ export default function CheckGoldRates() {
                 </p>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-stone-200/40">
+              <div className="pt-4 sm:pt-5 mt-4 border-t border-stone-200/40">
                 <Link
                   to={`/custom-sample?metal=${encodeURIComponent(card.title)}`}
-                  className={`block text-center text-xs font-semibold py-2 rounded-lg transition ${
+                  className={`flex items-center justify-center min-h-[44px] text-center text-xs font-semibold px-3 py-2 rounded-lg transition active:scale-95 ${
                     card.highlight
                       ? 'bg-gold-500 hover:bg-gold-400 text-burgundy-950'
                       : 'bg-stone-50 hover:bg-gold-50 text-stone-800 border border-stone-200'
@@ -158,11 +158,11 @@ export default function CheckGoldRates() {
         </div>
 
         {/* Hallmarking Purity Guide Section */}
-        <div className="bg-white rounded-2xl p-8 border border-stone-200 shadow-sm space-y-6">
-          <div className="flex items-center gap-3 border-b border-stone-100 pb-4">
-            <ShieldCheck className="w-7 h-7 text-gold-500" />
+        <div className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 border border-stone-200 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 border-b border-stone-100 pb-4">
+            <ShieldCheck className="w-7 h-7 text-gold-500 shrink-0" />
             <div>
-              <h2 className="font-serif text-xl font-bold text-burgundy-950">
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-burgundy-950">
                 Understanding BIS Hallmarking & HUID Purity Marks
               </h2>
               <p className="text-xs text-stone-500">
@@ -171,7 +171,7 @@ export default function CheckGoldRates() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-stone-600 leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs text-stone-600 leading-relaxed">
             <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
               <span className="font-bold text-burgundy-950 text-sm block">1. Triangular BIS Logo</span>
               <p>Indicates that the ornament has been officially assayed and certified at an authorized Bureau of Indian Standards testing centre.</p>
@@ -180,7 +180,7 @@ export default function CheckGoldRates() {
               <span className="font-bold text-burgundy-950 text-sm block">2. Purity Fineness Grade</span>
               <p><strong>22K916</strong> signifies 91.6% pure gold. <strong>18K750</strong> signifies 75% pure gold. Look for this stamp on the inner clasp.</p>
             </div>
-            <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+            <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2 sm:col-span-2 md:col-span-1">
               <span className="font-bold text-burgundy-950 text-sm block">3. 6-Digit Alphanumeric HUID</span>
               <p>Every single jewellery piece carries a unique Hallmark Unique Identification laser code trackable on the BIS Care App.</p>
             </div>
