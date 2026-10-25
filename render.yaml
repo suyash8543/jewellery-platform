@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: swarna-mahal-jewellery-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: oregon
+    healthCheckPath: /api/settings
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: MongoDb__ConnectionString
+        value: mongodb+srv://devnexora214_db_user:x2Lff0KeJjsSj8k0@swarnamahaljewellery.tnjknut.mongodb.net/?retryWrites=true&w=majority
+      - key: MongoDb__DatabaseName
+        value: SwarnaMahalJewellery

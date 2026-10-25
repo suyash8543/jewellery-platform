@@ -1,5 +1,6 @@
-// Base API configuration
-const API_BASE = '/api';
+// Base API configuration (supports Vercel environment variable or local proxy)
+const RAW_BASE = import.meta.env.VITE_API_BASE_URL ? import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '') : '';
+const API_BASE = RAW_BASE ? `${RAW_BASE}/api` : '/api';
 
 function getAuthHeader() {
   const token = localStorage.getItem('swarna_admin_token');
