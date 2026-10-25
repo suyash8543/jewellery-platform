@@ -227,6 +227,7 @@ export default function AdminDashboard() {
               <input
                 type="text"
                 required
+                placeholder="Enter admin username..."
                 value={loginForm.username}
                 onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
                 className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl text-base sm:text-sm min-h-[44px]"

@@ -124,7 +124,7 @@ export default function GoldRateCalculatorWidget({ embedded = false }) {
                   key={p.label}
                   type="button"
                   onClick={() => setWeight(p.grams)}
-                  className="text-[11px] bg-stone-100 hover:bg-gold-100 text-stone-700 px-3 py-1.5 rounded-full border border-stone-200 transition min-h-[32px] flex items-center"
+                  className="text-xs bg-stone-100 hover:bg-gold-100 text-stone-700 px-3.5 py-2 rounded-full border border-stone-200 transition min-h-[40px] flex items-center justify-center font-medium active:scale-95 shadow-2xs"
                 >
                   {p.label}
                 </button>

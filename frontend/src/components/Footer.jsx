@@ -57,13 +57,13 @@ export default function Footer() {
             <h4 className="text-xs sm:text-sm font-serif font-bold text-white uppercase tracking-wider mb-4 border-b border-gold-500/30 pb-1">
               Curated Collections
             </h4>
-            <ul className="space-y-2 text-xs">
-              <li><Link to="/collections?category=Bridal%20Jewellery" className="hover:text-gold-400 transition py-1 inline-block">Bridal Chokers & Haars</Link></li>
-              <li><Link to="/collections?category=Necklaces" className="hover:text-gold-400 transition py-1 inline-block">Temple & Antique Gold</Link></li>
-              <li><Link to="/collections?category=Bangles" className="hover:text-gold-400 transition py-1 inline-block">Kadas & Bridal Bangles</Link></li>
-              <li><Link to="/collections?category=Rings" className="hover:text-gold-400 transition py-1 inline-block">Diamond Solitaires</Link></li>
-              <li><Link to="/collections?category=Coins" className="hover:text-gold-400 transition py-1 inline-block">24K Dhanteras Gold Coins</Link></li>
-              <li><Link to="/custom-sample" className="hover:text-gold-400 font-semibold text-gold-300 transition py-1 inline-block">Bespoke Design Orders</Link></li>
+            <ul className="space-y-1 text-xs">
+              <li><Link to="/collections?category=Bridal%20Jewellery" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Bridal Chokers & Haars</Link></li>
+              <li><Link to="/collections?category=Necklaces" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Temple & Antique Gold</Link></li>
+              <li><Link to="/collections?category=Bangles" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Kadas & Bridal Bangles</Link></li>
+              <li><Link to="/collections?category=Rings" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Diamond Solitaires</Link></li>
+              <li><Link to="/collections?category=Coins" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">24K Dhanteras Gold Coins</Link></li>
+              <li><Link to="/custom-sample" className="hover:text-gold-400 font-semibold text-gold-300 transition py-1.5 inline-flex items-center min-h-[32px]">Bespoke Design Orders</Link></li>
             </ul>
           </div>
 
@@ -72,12 +72,12 @@ export default function Footer() {
             <h4 className="text-xs sm:text-sm font-serif font-bold text-white uppercase tracking-wider mb-4 border-b border-gold-500/30 pb-1">
               Customer Services
             </h4>
-            <ul className="space-y-2 text-xs">
-              <li><Link to="/gold-rates" className="hover:text-gold-400 transition py-1 inline-block">Live Gold Rate Calculator</Link></li>
-              <li><Link to="/diwali-offers" className="hover:text-gold-400 transition py-1 inline-block">Diwali Festive Offers</Link></li>
-              <li><Link to="/custom-sample" className="hover:text-gold-400 transition py-1 inline-block">Upload Design Sample</Link></li>
-              <li><a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-gold-400 transition py-1 inline-block">Book VIP Bridal Lounge</a></li>
-              <li><Link to="/admin" className="text-stone-500 hover:text-stone-300 transition py-1 inline-block">Store Owner Dashboard</Link></li>
+            <ul className="space-y-1 text-xs">
+              <li><Link to="/gold-rates" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Live Gold Rate Calculator</Link></li>
+              <li><Link to="/diwali-offers" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Diwali Festive Offers</Link></li>
+              <li><Link to="/custom-sample" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Upload Design Sample</Link></li>
+              <li><a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-gold-400 transition py-1.5 inline-flex items-center min-h-[32px]">Book VIP Bridal Lounge</a></li>
+              <li><Link to="/admin" className="text-stone-500 hover:text-stone-300 transition py-1.5 inline-flex items-center min-h-[32px]">Store Owner Dashboard</Link></li>
             </ul>
           </div>
 

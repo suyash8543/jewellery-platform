@@ -31,20 +31,20 @@ export default function ProductCard({ product }) {
           {/* Floating Badges */}
           <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex flex-col gap-1 sm:gap-1.5 z-10">
             {/* Purity & BIS Badge */}
-            <span className="inline-flex items-center gap-1 bg-burgundy-950/85 backdrop-blur-md text-gold-300 text-[9px] xs:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-gold-500/30">
+            <span className="inline-flex items-center gap-1 bg-burgundy-950/85 backdrop-blur-md text-gold-300 text-[10px] xs:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-gold-500/30">
               <ShieldCheck className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-gold-400" /> {product.purity} BIS 916
             </span>
 
             {/* Special Offer Badge */}
             {product.hasSpecialOffer && (
-              <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-[9px] xs:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-sm">
+              <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-[10px] xs:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-sm">
                 <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 animate-spin-slow" /> {product.offerBadgeText || 'Festive Offer'}
               </span>
             )}
 
             {/* Bestseller Badge */}
             {product.isBestseller && !product.hasSpecialOffer && (
-              <span className="inline-flex items-center bg-stone-900/80 backdrop-blur-md text-white text-[9px] xs:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
+              <span className="inline-flex items-center bg-stone-900/80 backdrop-blur-md text-white text-[10px] xs:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
                 Bestseller
               </span>
             )}

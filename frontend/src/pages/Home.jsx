@@ -90,7 +90,7 @@ export default function Home() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-burgundy-950/90 via-burgundy-950/30 to-transparent flex flex-col justify-end p-2.5 sm:p-4 text-center">
-                <span className="text-[9px] sm:text-[10px] text-gold-300 font-bold uppercase tracking-wider mb-0.5">
+                <span className="text-[10px] sm:text-xs text-gold-300 font-bold uppercase tracking-wider mb-0.5">
                   {cat.tag}
                 </span>
                 <h3 className="font-serif text-xs xs:text-sm sm:text-base font-bold text-white group-hover:text-gold-300 transition">

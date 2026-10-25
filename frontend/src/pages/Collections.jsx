@@ -111,7 +111,7 @@ export default function Collections() {
                 <button
                   key={metal}
                   onClick={() => handleMetalClick(metal)}
-                  className={`text-xs px-3 py-1.5 rounded-full border transition min-h-[36px] flex items-center ${
+                  className={`text-xs px-3.5 py-2 rounded-full border transition min-h-[40px] flex items-center justify-center font-medium active:scale-95 ${
                     activeMetal === metal
                       ? 'bg-burgundy-950 text-gold-300 border-burgundy-950 font-bold shadow-sm'
                       : 'bg-stone-50 text-stone-700 border-stone-200 hover:border-gold-300'

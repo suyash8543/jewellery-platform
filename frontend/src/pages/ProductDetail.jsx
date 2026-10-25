@@ -56,7 +56,7 @@ export default function ProductDetail() {
           </p>
           <Link
             to="/collections"
-            className="inline-block bg-burgundy-950 text-gold-300 text-xs font-semibold px-5 py-2.5 rounded-lg"
+            className="inline-flex items-center justify-center min-h-[44px] bg-burgundy-950 text-gold-300 text-xs font-semibold px-5 py-2.5 rounded-lg active:scale-95 transition"
           >
             ← Browse All Collections
           </Link>

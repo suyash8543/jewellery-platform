@@ -81,7 +81,7 @@ export default function Navbar() {
               </span>
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500 animate-spin-slow shrink-0" />
             </div>
-            <span className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase font-sans text-stone-500 font-semibold -mt-0.5 sm:-mt-1">
+            <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase font-sans text-stone-500 font-semibold -mt-0.5 sm:-mt-1">
               Jewellers • Heritage Since 1982
             </span>
           </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
                 >
                   {link.name}
                   {link.badge && (
-                    <span className="bg-amber-100 text-amber-800 text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase tracking-wider">
+                    <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
                       {link.badge}
                     </span>
                   )}
@@ -138,7 +138,7 @@ export default function Navbar() {
           <div className="flex items-center lg:hidden gap-1.5 sm:gap-2">
             <Link
               to="/custom-sample"
-              className="text-[11px] sm:text-xs bg-gold-50 text-burgundy-900 border border-gold-300 px-2.5 py-1.5 rounded-full flex items-center gap-1 font-medium"
+              className="text-[11px] sm:text-xs bg-gold-50 text-burgundy-900 border border-gold-300 px-3 py-2 rounded-full flex items-center gap-1.5 font-medium min-h-[40px] shadow-sm"
             >
               <UploadCloud className="w-3.5 h-3.5 text-gold-600 shrink-0" />
               <span>Sample</span>
