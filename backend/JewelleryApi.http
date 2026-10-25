@@ -1,0 +1,6 @@
+@JewelleryApi_HostAddress = http://localhost:5083
+
+GET {{JewelleryApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
