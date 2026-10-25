@@ -2,12 +2,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Copy project file and restore dependencies
-COPY ["JewelleryApi.csproj", "./"]
-RUN dotnet restore "JewelleryApi.csproj"
+# Copy csproj from backend and restore
+COPY ["backend/JewelleryApi.csproj", "backend/"]
+RUN dotnet restore "backend/JewelleryApi.csproj"
 
-# Copy all files and publish Release build
-COPY . .
+# Copy full backend source and publish
+COPY backend/ backend/
+WORKDIR "/src/backend"
 RUN dotnet publish "JewelleryApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Runtime Stage
